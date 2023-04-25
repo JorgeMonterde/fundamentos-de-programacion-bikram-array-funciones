@@ -54,6 +54,17 @@ function esPrimo(num){
 }
 console.log(esPrimo(num))
 
+//otra forma de hacerlo
+function esPrimo2(num){
+    for(i=(num-1); i>1; i--){
+        if (num % i == 0){
+            return false
+        }
+    } return true
+}
+
+
+
 
 
 function separarPalabras(a){
@@ -73,8 +84,8 @@ function separarPalabras(a){
 console.log(separarPalabras("Me llamo Jorge"))
 
 
-let n = [101, 101, 95, 96, 96, 99, 95, 93, 93, 98, 94, 99, 93, 99]
-function ordenarArray(){
+let n = []
+function ordenarArray(n){
     for (i=0; i<n.length; i++){
         for(j=0; j<n.length; j++){
             if (n[j-1] > n[j]){
@@ -100,40 +111,41 @@ function obtenerPares(n){
 }
 console.log(obtenerPares(n))
 
+
 function pintarArray(n){
     return "[" + `${n}` + "]"
 }
 console.log(pintarArray(n))
 
 
-
-/*
 function arrayMapi(arr, func){
-    
-    return arr.forEach((item) => {func})
+    for(i=0; i<arr.length; i++){
+        func(arr[i])
+    }
 }
-*/
+
 
 
 let m = [7,0,9,5,7,0,7,3,8,8,8,8,2,35,0,1,7];
+let m2 = [45, 3, 15, 72, 3, 45, 50, 15, 72, 3, 45, 50, 15, 50, 72];
 
 function eliminarDuplicados(arr){
     let arr2 = [];
     let index = 0;
 
-    for(i=0; i<m.length; i++){
-        for(j=0; j<m.length; j++){
-            if (m[i] == arr2[j]){
+    for(i=0; i<arr.length; i++){
+        for(j=0; j<arr.length; j++){
+            if (arr[i] == arr2[j]){
                 break;
-            } else if ((j == m.length-1) && (m[i] != arr2[arr2.length-1])){
-                arr2[index] = m[i];
+            } else if ((j == arr.length-1) && (arr[i] != arr2[arr2.length-1])){
+                arr2[index] = arr[i];
                 index++;
             } 
         }
     }
     return arr2
 }
-console.log(eliminarDuplicados(m))
+console.log(eliminarDuplicados(m2))
 
 
 let arrayNumerosNeg = [0,-1,-2,-3,-4,-5,-6,-7,-8,-9];
@@ -143,22 +155,25 @@ let arrayDeArrays = [[756, 'nombre'], [225, 'apellido'], [298, 'direccion']];
 
 
 function multiplicacion(a,b){
-    for (i=b; i<b; i++){
-        a += a;
+    let result = 0;
+    for (i=0; i<b; i++){
+        result = result + a;
+        console.log(a)
     }
-    return a
+    return result
 }
+console.log(multiplicacion(8,3))
 
 
 function division(a,b){
-    result = 0;
+    let result = 0;
     while (a>0){
         a -= b;
         result++
     }
     return result
 }
-console.log(division(84,2))
+console.log(division(83,2))
 
 
 function esPar(a){
@@ -176,6 +191,7 @@ let arrayFunciones = [suma(2,6),resta(8,1),multiplicacion(9,4)];
 console.log(arrayFunciones);
 
 
+let m3 = [171, 195, 144, 98, 108, 186, 142, 207, 125, 157, 197, 202, 152, 115];
 function ordenarArray2(arr){
     for (j=0; j<arr.length; j++){
         for(i=0; i<arr.length;i++){
@@ -188,7 +204,7 @@ function ordenarArray2(arr){
     }
     return arr
 }
-console.log(ordenarArray2(m))
+console.log(ordenarArray2(m3))
 
 
 function obtenerImpares(arr){
